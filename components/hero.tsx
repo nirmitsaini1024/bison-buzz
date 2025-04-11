@@ -42,40 +42,40 @@ const Hero = () => {
         alt="Instagram" 
         width={144}
         height={144}
-        className="absolute w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 opacity-15 left-4 top-20 sm:left-8 sm:top-40 md:left-32 md:top-64 float-h"
+        className="absolute w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 opacity-30 left-4 top-20 sm:left-8 sm:top-40 md:left-32 md:top-64 float-h"
       />
       <Image 
         src="https://cdn.prod.website-files.com/5ecac4ce2b50b65b73142945/6021a3f9050aceeb201a9ea2_Twitter.png" 
         alt="Twitter" 
         width={144}
         height={144}
-        className="absolute w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 opacity-15 left-8 bottom-16 sm:left-16 sm:bottom-24 md:left-1/4 md:bottom-24 float-v"
+        className="absolute w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 opacity-30 left-8 bottom-16 sm:left-16 sm:bottom-24 md:left-1/4 md:bottom-24 float-v"
       />
       <Image
         src="https://cdn.prod.website-files.com/5ecac4ce2b50b65b73142945/6021a401efa64c41f32c5dfa_FB.png" 
         alt="Facebook" 
         width={144}
         height={144}
-        className="absolute w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 opacity-15 top-24 right-28 sm:top-28 sm:right-28 md:top-36 md:right-1/2 float-h-reverse"
+        className="absolute w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 opacity-30 top-24 right-28 sm:top-28 sm:right-28 md:top-36 md:right-1/2 float-h-reverse"
       />
       <Image 
         src="https://cdn.prod.website-files.com/5ecac4ce2b50b65b73142945/6021a3cd5a15542d9fe2a642_Linkedin.png" 
         alt="LinkedIn" 
         width={112}
         height={112}
-        className="absolute w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 opacity-15 right-6 bottom-12 sm:right-16 sm:bottom-20 md:right-72 md:bottom-50 float-v-reverse"
+        className="absolute w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 opacity-30 right-6 bottom-12 sm:right-16 sm:bottom-20 md:right-72 md:bottom-50 float-v-reverse"
       />
       <Image
         src="https://cdn.prod.website-files.com/5ecac4ce2b50b65b73142945/60218f93e083ce225dcc16d1_Tube.png" 
         alt="YouTube" 
         width={144}
         height={144}
-        className="absolute w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 opacity-15 right-8 top-24 sm:right-20 sm:top-36 md:right-48 md:top-48 float-h"
+        className="absolute w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 opacity-30 right-8 top-24 sm:right-20 sm:top-36 md:right-48 md:top-48 float-h"
       />
       
       {/* Main Content */}
       <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold z-10 mt-8 sm:mt-0'>BISON BUZZ</h1>
-      <p className='text-xl sm:text-xl md:text-2xl font-bold montserrat-new z-10 text-center px-4'>Taking Influencer Marketing to Next Level</p>
+      <p className='text-xl sm:text-xl md:text-2xl font-bold montserrat-new z-10 text-center px-4'>We help brands grow and manage their social media</p>
       <div className="flex mt-2 gap-2 sm:gap-4 z-10">
         <Button text='BRAND' bg='#333333' textColor='#ffd823'/>
         <Button text='INFLUENCER' bg='#333333' textColor='#ffd823'/>

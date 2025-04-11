@@ -12,7 +12,9 @@ export default function Footer() {
           <p className="text-[#ffd823] font-bold text-2xl">
             Ready to get started?
           </p>
-          <Button text="LET&apos;S TALK" bg="#ffd823" textColor="#333333" />
+          <Link href="/contact-us" passHref className="cursor-pointer">
+            <Button text="LET'S TALK" bg="#ffd823" textColor="#333333"></Button>
+          </Link>
         </div>
       </div>
 
@@ -30,7 +32,7 @@ export default function Footer() {
           </p>
           <p className="text-sm">
             Email Us:{" "}
-            <span className="text-yellow-400">business@monk-e.in</span>
+            <span className="text-yellow-400">Bisonbuzzmedia@gmail.com</span>
           </p>
         </div>
 
@@ -65,7 +67,7 @@ export default function Footer() {
       </div>
 
       <div className="flex justify-between items-center flex-wrap gap-6">
-        <p>© Monk Entertainment 2022. All Rights Reserved.</p>
+        <p>© Bison Buzz 2025. All Rights Reserved.</p>
         <div className="flex gap-2">
           <Link
             href="/"

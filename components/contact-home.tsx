@@ -10,7 +10,7 @@ const ContactSection: React.FC = () => {
         <p className="text-lg text-gray-600 mb-8">
           Let&apos;s discuss how we can help you stand out
         </p>
-        <Link href="/contact" passHref>
+        <Link href="/contact-us" passHref>
           <Button text="Contact Us" bg="#ffd823" textColor="#333333" />
         </Link>
       </div>

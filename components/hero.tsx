@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import Image from 'next/image';
 
 const Hero = () => {
   return (
@@ -36,27 +37,27 @@ const Hero = () => {
       `}</style>
       
       {/* Social Media Icons with improved responsive positioning */}
-      <img 
+      <Image 
         src="https://cdn.prod.website-files.com/5ecac4ce2b50b65b73142945/60219ae9b5fd305991f5a994_Insta.png" 
         alt="Instagram" 
         className="absolute w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 opacity-15 left-4 top-20 sm:left-8 sm:top-40 md:left-32 md:top-64 float-h"
       />
-      <img 
+      <Image 
         src="https://cdn.prod.website-files.com/5ecac4ce2b50b65b73142945/6021a3f9050aceeb201a9ea2_Twitter.png" 
         alt="Twitter" 
         className="absolute w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 opacity-15 left-8 bottom-16 sm:left-16 sm:bottom-24 md:left-1/4 md:bottom-24 float-v"
       />
-      <img 
+      <Image
         src="https://cdn.prod.website-files.com/5ecac4ce2b50b65b73142945/6021a401efa64c41f32c5dfa_FB.png" 
         alt="Facebook" 
         className="absolute w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 opacity-15 top-24 right-28 sm:top-28 sm:right-28 md:top-36 md:right-1/2 float-h-reverse"
       />
-      <img 
+      <Image 
         src="https://cdn.prod.website-files.com/5ecac4ce2b50b65b73142945/6021a3cd5a15542d9fe2a642_Linkedin.png" 
         alt="LinkedIn" 
         className="absolute w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 opacity-15 right-6 bottom-12 sm:right-16 sm:bottom-20 md:right-72 md:bottom-50 float-v-reverse"
       />
-      <img 
+      <Image
         src="https://cdn.prod.website-files.com/5ecac4ce2b50b65b73142945/60218f93e083ce225dcc16d1_Tube.png" 
         alt="YouTube" 
         className="absolute w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 opacity-15 right-8 top-24 sm:right-20 sm:top-36 md:right-48 md:top-48 float-h"

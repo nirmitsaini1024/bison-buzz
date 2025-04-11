@@ -52,7 +52,7 @@ const Navbar = () => {
         {/* Logo with more right padding */}
         <div className="flex items-center ml-4 sm:ml-8 md:ml-12">
           <Link href="/">
-            <Image src="/bull-logo.png" alt="Bison Buzz" width={80} height={80} className="h-16 w-auto" />
+            <Image src="/bull.png" alt="Bison Buzz" width={80} height={80} className="h-16 w-auto" />
           </Link>
         </div>
         

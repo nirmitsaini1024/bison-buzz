@@ -165,7 +165,7 @@ export default function ContactUs() {
           </h1>
           <div className="h-1 w-32 bg-gradient-to-r from-yellow-500 to-yellow-600 mx-auto rounded-full"></div>
           <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
-            Have questions or want to learn more? We'd love to hear from you.
+            Have questions or want to learn more? We&rsquo;d love to hear from you.
           </p>
         </div>
 
@@ -178,7 +178,7 @@ export default function ContactUs() {
             </h2>
             <p className="text-gray-600 mb-6">
               Please be specific in your communication to serve you better.
-              We'll get back to you as soon as possible.
+              We&rsquo;ll get back to you as soon as possible.
             </p>
             
             <form className="space-y-6" onSubmit={handleSubmit}>

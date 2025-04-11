@@ -1,6 +1,7 @@
 import { Linkedin, Twitter, Instagram, Youtube } from "lucide-react";
 import Button from "./Button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -66,34 +67,34 @@ export default function Footer() {
       <div className="flex justify-between items-center flex-wrap gap-6">
         <p>© Monk Entertainment 2022. All Rights Reserved.</p>
         <div className="flex gap-2">
-          <a
+          <Link
             href="/"
             aria-label="LinkedIn"
             className="bg-gray-800 p-2 rounded-full hover:bg-yellow-300 hover:text-gray-900 transition-all"
           >
             <Linkedin className="w-5 h-5" />
-          </a>
-          <a
+          </Link>
+          <Link
             href="/"
             aria-label="Twitter"
             className="bg-gray-800 p-2 rounded-full hover:bg-yellow-300 hover:text-gray-900 transition-all"
           >
             <Twitter className="w-5 h-5" />
-          </a>
-          <a
+          </Link>
+          <Link
             href="/"
             aria-label="Instagram"
             className="bg-gray-800 p-2 rounded-full hover:bg-yellow-300 hover:text-gray-900 transition-all"
           >
             <Instagram className="w-5 h-5" />
-          </a>
-          <a
+          </Link>
+          <Link
             href="/"
             aria-label="YouTube"
             className="bg-gray-800 p-2 rounded-full hover:bg-yellow-300 hover:text-gray-900 transition-all"
           >
             <Youtube className="w-5 h-5" />
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

@@ -37,7 +37,7 @@ export function WobbleCardDemo() {
               Social Media Management
             </h2>
             <p className="mt-4 max-w-[26rem] text-left text-base/6 text-neutral-200">
-              Our Instagram management service optimizes your brand's presence,
+              Our Instagram management service optimizes your brand&rsquo;s presence,
               boosts engagement, and drives growth through strategic content
               creation, audience targeting, and performance analytics..{" "}
             </p>
@@ -79,7 +79,7 @@ export function WobbleCardDemo() {
               100% Youtube Managment
             </h2>
             <p className="mt-4 max-w-[26rem] text-left text-base/6 text-neutral-200">
-              We'll cover it according to your needs or manage it all, from
+              We&rsquo;ll cover it according to your needs or manage it all, from
               researching content ideas, scripting, professionally editing, making
               a super catchy thumbnail to publishing and everything small in
               between

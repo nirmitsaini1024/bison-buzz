@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Button from './Button';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Hero = () => {
   const [logoLoaded, setLogoLoaded] = useState(false);
@@ -15,7 +16,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className='relative min-h-screen w-full flex flex-col justify-center items-center bg-[#EBC054] text-[#333333] gap-3 overflow-hidden pt-16'>
+    <div className='relative min-h-screen w-full flex flex-col justify-center items-center bg-[#F1D65F] text-[#333333] gap-3 overflow-hidden pt-16'>
       {/* Social Media Icons with custom animations */}
       <style jsx global>{`
         @keyframes floatHorizontal1 {
@@ -143,8 +144,12 @@ const Hero = () => {
         </p>
       </div>
       <div className="flex mt-4 gap-2 sm:gap-4 z-10">
-        <Button text='BRAND' bg='#333333' textColor='#ffd823'/>
-        <Button text='INFLUENCER' bg='#333333' textColor='#ffd823'/>
+        <Link href="/contact-us">
+          <Button text='BRAND' bg='#333333' textColor='#ffd823'/>
+        </Link>
+        <Link href="/contact-us">
+          <Button text='INFLUENCER' bg='#333333' textColor='#ffd823'/>
+        </Link>
       </div>
     </div>
   );

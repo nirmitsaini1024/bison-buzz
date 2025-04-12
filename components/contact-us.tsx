@@ -8,6 +8,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 interface ContactFormData {
   fullName: string;
   companyName: string;
+  companyWebsite: string;  // Added company website field
   phoneNumber: string;
   email: string;
   message: string;
@@ -16,6 +17,7 @@ interface ContactFormData {
 interface ContactFormErrors {
   fullName?: string;
   companyName?: string;
+  companyWebsite?: string;  // Added company website field
   phoneNumber?: string;
   email?: string;
   message?: string;
@@ -27,10 +29,10 @@ interface SubmitStatus {
 }
 
 export default function ContactUs() {
-  const [isRibbonClosed, setIsRibbonClosed] = useState<boolean>(false);
   const [formData, setFormData] = useState<ContactFormData>({
     fullName: '',
     companyName: '',
+    companyWebsite: '',  // Added company website field
     phoneNumber: '',
     email: '',
     message: '',
@@ -41,10 +43,7 @@ export default function ContactUs() {
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
-  useLayoutEffect(() => {
-    const ribbonClosed = localStorage.getItem("ribbon") === "true";
-    setIsRibbonClosed(ribbonClosed);
-  }, []);
+
 
   const validateForm = (): ContactFormErrors => {
     const errors: ContactFormErrors = {};
@@ -65,6 +64,11 @@ export default function ContactUs() {
     
     if (formData.phoneNumber && !/^\+?[0-9\s\-()]{8,20}$/.test(formData.phoneNumber)) {
       errors.phoneNumber = 'Please enter a valid phone number';
+    }
+
+    // Validate website URL if provided
+    if (formData.companyWebsite && !/^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/.test(formData.companyWebsite)) {
+      errors.companyWebsite = 'Please enter a valid website URL';
     }
     
     return errors;
@@ -132,6 +136,7 @@ export default function ContactUs() {
         setFormData({
           fullName: '',
           companyName: '',
+          companyWebsite: '',  // Reset company website
           phoneNumber: '',
           email: '',
           message: '',
@@ -152,14 +157,12 @@ export default function ContactUs() {
   };
 
   return (
-    <>
+    <div className="bg-[#F1D65F]">
       <div
-        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${
-          isRibbonClosed ? "pt-10 md:pt-12" : "pt-20 md:pt-6"
-        } overflow-hidden`}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-12 overflow-hidden"
       >
         {/* Page heading with gradient underline */}
-        <div className="text-center my-12 pt-8 md:pt-16">
+        <div className="text-center my-12 pt-8 md:pt-16 ">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
             Get In Touch
           </h1>
@@ -217,6 +220,27 @@ export default function ContactUs() {
                   placeholder="Your Company"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 outline-none transition"
                 />
+              </div>
+              
+              {/* Company Website (New field) */}
+              <div>
+                <label htmlFor="companyWebsite" className="block text-sm font-medium text-gray-700 mb-1">
+                  Company Website
+                </label>
+                <input
+                  type="url"
+                  id="companyWebsite"
+                  name="companyWebsite"
+                  value={formData.companyWebsite}
+                  onChange={handleChange}
+                  placeholder="https://example.com"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 outline-none transition ${
+                    formErrors.companyWebsite ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                />
+                {formErrors.companyWebsite && (
+                  <p className="mt-1 text-sm text-red-600">{formErrors.companyWebsite}</p>
+                )}
               </div>
               
               {/* Email and Phone in a row */}
@@ -321,6 +345,6 @@ export default function ContactUs() {
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 }

@@ -1,13 +1,7 @@
 /** @format */
 "use client";
 
-import React, { useState, useRef } from "react";
-
-// Recaptcha Component type
-interface ReCAPTCHARef {
-  executeAsync: () => Promise<string>;
-  reset: () => void;
-}
+import React, { useState } from "react";
 
 // Type definitions
 interface ContactFormData {
@@ -46,7 +40,6 @@ export default function ContactUs() {
   const [formErrors, setFormErrors] = useState<ContactFormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus | null>(null);
-  const recaptchaRef = useRef<ReCAPTCHARef | null>(null);
 
   // No need for reCAPTCHA component as we're handling verification server-side
 

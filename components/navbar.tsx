@@ -112,7 +112,7 @@ const Navbar = () => {
         
         {/* Contact Button & Mobile Menu Toggle */}
         <div>
-          <Link href="/contact" className="hidden lg:inline-block bg-gray-800 hover:bg-gray-700 text-yellow-400 font-bold py-2 px-6 rounded transition duration-300">
+          <Link href="/contact-us" className="hidden lg:inline-block bg-gray-800 hover:bg-gray-700 text-yellow-400 font-bold py-2 px-6 rounded transition duration-300">
             CONTACT US
           </Link>
           

@@ -133,7 +133,7 @@ const Hero = () => {
       <div className="z-10 flex flex-col items-center mt-8 sm:mt-0">
         {/* Using regular img tag for more direct control of size */}
         <div className={`${logoLoaded ? 'logo-animate' : 'opacity-0'}`} style={{width: "100%", maxWidth: "450px"}}>
-          <img 
+          <Image 
             src="/bull-logo.png" 
             alt="Bison Buzz Logo"
             style={{width: "100%", height: "auto"}}

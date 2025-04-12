@@ -88,8 +88,8 @@ export async function POST(request) {
         // Parse the request body
         const body = await request.json();
 
-        // Extract form data and reCAPTCHA token
-        const { fullName, companyName, companyWebsite, phoneNumber, email, message, recaptchaToken } = body;
+        // Extract form data
+        const { fullName, companyName, companyWebsite, phoneNumber, email, message } = body;
 
         // Validate required fields
         if (!fullName || !email || !message) {
@@ -99,17 +99,8 @@ export async function POST(request) {
             );
         }
 
-        // Verify reCAPTCHA token if provided
-        let isRecaptchaValid = true;
-        if (recaptchaToken) {
-            isRecaptchaValid = await verifyRecaptcha(recaptchaToken);
-            if (!isRecaptchaValid) {
-                return NextResponse.json(
-                    { message: 'reCAPTCHA verification failed' },
-                    { status: 400 }
-                );
-            }
-        }
+        // We're no longer using reCAPTCHA verification
+        // to simplify the form submission process
 
         // Generate email HTML
         const emailHtml = createEmailTemplate({

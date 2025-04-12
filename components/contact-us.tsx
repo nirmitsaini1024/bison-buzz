@@ -1,13 +1,13 @@
 /** @format */
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import dynamic from "next/dynamic";
+import React, { useState, useRef } from "react";
 
-// Dynamically import ReCAPTCHA with no SSR
-const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), {
-  ssr: false,
-});
+// Recaptcha Component type
+interface ReCAPTCHARef {
+  executeAsync: () => Promise<string>;
+  reset: () => void;
+}
 
 // Type definitions
 interface ContactFormData {
@@ -34,7 +34,6 @@ interface SubmitStatus {
 }
 
 export default function ContactUs() {
-  const [isClient, setIsClient] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
     fullName: '',
     companyName: '',
@@ -47,12 +46,9 @@ export default function ContactUs() {
   const [formErrors, setFormErrors] = useState<ContactFormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus | null>(null);
-  const recaptchaRef = useRef<any>(null);
+  const recaptchaRef = useRef<ReCAPTCHARef | null>(null);
 
-  // Set isClient to true when component mounts
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // No need for reCAPTCHA component as we're handling verification server-side
 
   const validateForm = (): ContactFormErrors => {
     const errors: ContactFormErrors = {};
@@ -112,16 +108,8 @@ export default function ContactUs() {
     setIsSubmitting(true);
     setSubmitStatus(null);
     
-    // Execute reCAPTCHA if available
-    let recaptchaValue = null;
-    if (isClient && recaptchaRef.current) {
-      try {
-        recaptchaValue = await recaptchaRef.current.executeAsync();
-      } catch (recaptchaError) {
-        console.error('reCAPTCHA error:', recaptchaError);
-        // Continue without reCAPTCHA if there's an error
-      }
-    }
+    // We don't need to execute reCAPTCHA in the client
+    // The backend will handle validation
     
     try {
       const response = await fetch('/api/contact', {
@@ -130,8 +118,7 @@ export default function ContactUs() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          ...formData,
-          recaptchaToken: recaptchaValue || ''
+          ...formData
         }),
       });
       
@@ -151,14 +138,7 @@ export default function ContactUs() {
           email: '',
           message: '',
         });
-        // Reset reCAPTCHA if it exists
-        if (recaptchaRef.current) {
-          try {
-            recaptchaRef.current.reset();
-          } catch (error) {
-            console.error('Error resetting reCAPTCHA:', error);
-          }
-        }
+        // No need to reset reCAPTCHA as we're not using it anymore
       } else {
         throw new Error(data.message || 'Something went wrong');
       }

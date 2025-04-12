@@ -66,15 +66,15 @@ const Hero = () => {
         }
         
         .float-h1 {
-          animation: floatHorizontal1 5s ease-in-out infinite !important;
+          animation: floatHorizontal1 3s ease-in-out infinite !important;
         }
         
         .float-h2 {
-          animation: floatHorizontal2 9s ease-in-out infinite !important;
+          animation: floatHorizontal2 4s ease-in-out infinite !important;
         }
         
         .float-v1 {
-          animation: floatVertical1 5s ease-in-out infinite !important;
+          animation: floatVertical1 3.5s ease-in-out infinite !important;
         }
         
         .float-v2 {
@@ -82,7 +82,7 @@ const Hero = () => {
         }
         
         .float-d {
-          animation: floatDiagonal 7s ease-in-out infinite !important;
+          animation: floatDiagonal 3.8s ease-in-out infinite !important;
         }
         
         .logo-animate {
@@ -130,17 +130,15 @@ const Hero = () => {
       
       {/* Main Content with Logo instead of Text */}
       <div className="z-10 flex flex-col items-center mt-8 sm:mt-0">
-        <div className={`${logoLoaded ? 'logo-animate' : 'opacity-0'}`}>
-          <Image 
+        {/* Using regular img tag for more direct control of size */}
+        <div className={`${logoLoaded ? 'logo-animate' : 'opacity-0'}`} style={{width: "100%", maxWidth: "450px"}}>
+          <img 
             src="/bull-logo.png" 
-            alt="Bison Buzz Logo" 
-            width={300}
-            height={200}
-            className="w-64 sm:w-72 md:w-80"
-            priority
+            alt="Bison Buzz Logo"
+            style={{width: "100%", height: "auto"}}
           />
         </div>
-        <p className='text-xl sm:text-xl md:text-2xl font-bold montserrat-new z-10 text-center px-4 mt-6'>
+        <p className='text-xl sm:text-xl md:text-2xl font-bold montserrat-new z-10 text-center px-4'>
           We help brands grow and manage their social media
         </p>
       </div>

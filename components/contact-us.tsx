@@ -313,7 +313,7 @@ export default function ContactUs() {
               <ReCAPTCHA
                 ref={recaptchaRef}
                 size="invisible"
-                sitekey={process.env.RECAPTCHA_SITE_KEY|| ''}
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY|| ''}
               />
               
               {/* Status Message */}

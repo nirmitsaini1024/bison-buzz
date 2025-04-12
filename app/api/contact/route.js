@@ -99,13 +99,16 @@ export async function POST(request) {
             );
         }
 
-        // Verify reCAPTCHA token
-        const isRecaptchaValid = await verifyRecaptcha(recaptchaToken);
-        if (!isRecaptchaValid) {
-            return NextResponse.json(
-                { message: 'reCAPTCHA verification failed' },
-                { status: 400 }
-            );
+        // Verify reCAPTCHA token if provided
+        let isRecaptchaValid = true;
+        if (recaptchaToken) {
+            isRecaptchaValid = await verifyRecaptcha(recaptchaToken);
+            if (!isRecaptchaValid) {
+                return NextResponse.json(
+                    { message: 'reCAPTCHA verification failed' },
+                    { status: 400 }
+                );
+            }
         }
 
         // Generate email HTML

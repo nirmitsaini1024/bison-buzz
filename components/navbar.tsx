@@ -107,7 +107,7 @@ const Navbar = () => {
             </button>
           </div>
           
-          <Link href="/work" className="uppercase">WORK</Link>
+          <Link href="/" className="uppercase">WORK</Link>
         </div>
         
         {/* Contact Button & Mobile Menu Toggle */}
@@ -231,7 +231,7 @@ const Navbar = () => {
             </div>
             
             <div className="py-4 border-b border-yellow-200">
-              <Link href="/work" className="font-bold text-gray-800">WORK</Link>
+              <Link href="/" className="font-bold text-gray-800">WORK</Link>
             </div>
           </div>
         </div>

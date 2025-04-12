@@ -1,14 +1,19 @@
 /** @format */
 "use client";
 
-import React, {useState, useRef } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
+import React, { useState, useRef, useEffect } from "react";
+import dynamic from "next/dynamic";
+
+// Dynamically import ReCAPTCHA with no SSR
+const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), {
+  ssr: false,
+});
 
 // Type definitions
 interface ContactFormData {
   fullName: string;
   companyName: string;
-  companyWebsite: string;  // Added company website field
+  companyWebsite: string;
   phoneNumber: string;
   email: string;
   message: string;
@@ -17,7 +22,7 @@ interface ContactFormData {
 interface ContactFormErrors {
   fullName?: string;
   companyName?: string;
-  companyWebsite?: string;  // Added company website field
+  companyWebsite?: string;
   phoneNumber?: string;
   email?: string;
   message?: string;
@@ -29,10 +34,11 @@ interface SubmitStatus {
 }
 
 export default function ContactUs() {
+  const [isClient, setIsClient] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
     fullName: '',
     companyName: '',
-    companyWebsite: '',  // Added company website field
+    companyWebsite: '',
     phoneNumber: '',
     email: '',
     message: '',
@@ -41,9 +47,12 @@ export default function ContactUs() {
   const [formErrors, setFormErrors] = useState<ContactFormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus | null>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const recaptchaRef = useRef<any>(null);
 
-
+  // Set isClient to true when component mounts
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const validateForm = (): ContactFormErrors => {
     const errors: ContactFormErrors = {};
@@ -99,19 +108,20 @@ export default function ContactUs() {
       setFormErrors(errors);
       return;
     }
-
-    // Execute reCAPTCHA
-    const recaptchaValue = await recaptchaRef.current?.executeAsync();
-    if (!recaptchaValue) {
-      setSubmitStatus({
-        type: 'error',
-        message: 'reCAPTCHA verification failed. Please try again.'
-      });
-      return;
-    }
     
     setIsSubmitting(true);
     setSubmitStatus(null);
+    
+    // Execute reCAPTCHA if available
+    let recaptchaValue = null;
+    if (isClient && recaptchaRef.current) {
+      try {
+        recaptchaValue = await recaptchaRef.current.executeAsync();
+      } catch (recaptchaError) {
+        console.error('reCAPTCHA error:', recaptchaError);
+        // Continue without reCAPTCHA if there's an error
+      }
+    }
     
     try {
       const response = await fetch('/api/contact', {
@@ -121,7 +131,7 @@ export default function ContactUs() {
         },
         body: JSON.stringify({
           ...formData,
-          recaptchaToken: recaptchaValue
+          recaptchaToken: recaptchaValue || ''
         }),
       });
       
@@ -136,13 +146,19 @@ export default function ContactUs() {
         setFormData({
           fullName: '',
           companyName: '',
-          companyWebsite: '',  // Reset company website
+          companyWebsite: '',
           phoneNumber: '',
           email: '',
           message: '',
         });
-        // Reset reCAPTCHA
-        recaptchaRef.current?.reset();
+        // Reset reCAPTCHA if it exists
+        if (recaptchaRef.current) {
+          try {
+            recaptchaRef.current.reset();
+          } catch (error) {
+            console.error('Error resetting reCAPTCHA:', error);
+          }
+        }
       } else {
         throw new Error(data.message || 'Something went wrong');
       }
@@ -308,13 +324,6 @@ export default function ContactUs() {
                   <p className="mt-1 text-sm text-red-600">{formErrors.message}</p>
                 )}
               </div>
-              
-              {/* Hidden reCAPTCHA */}
-              <ReCAPTCHA
-                ref={recaptchaRef}
-                size="invisible"
-                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY|| ''}
-              />
               
               {/* Status Message */}
               {submitStatus && (

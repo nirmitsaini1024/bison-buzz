@@ -71,7 +71,7 @@ const Navbar = () => {
             {activeDropdown === 'company' && (
               <div className="absolute left-0 mt-2 w-72 bg-[rgba(0,0,0,0.7)] rounded-lg shadow-lg z-50 backdrop-blur-sm p-4">
                 <div className="flex flex-col space-y-4">
-                  <Link href="/about" className="flex items-center space-x-4 hover:bg-black hover:bg-opacity-40 p-3 rounded-lg transition duration-300">
+                  <Link href="/contact-us" className="flex items-center space-x-4 hover:bg-black hover:bg-opacity-40 p-3 rounded-lg transition duration-300">
                     <div className="w-14 h-14 flex-shrink-0 bg-yellow-400 rounded-lg flex items-center justify-center">
                       <span className="text-xl">🏠</span>
                     </div>
@@ -81,7 +81,7 @@ const Navbar = () => {
                     </div>
                   </Link>
                   
-                  <Link href="/jobs" className="flex items-center space-x-4 hover:bg-black hover:bg-opacity-40 p-3 rounded-lg transition duration-300">
+                  <Link href="/contact-us" className="flex items-center space-x-4 hover:bg-black hover:bg-opacity-40 p-3 rounded-lg transition duration-300">
                     <div className="w-14 h-14 flex-shrink-0 bg-yellow-400 rounded-lg flex items-center justify-center">
                       <span className="text-xl">👥</span>
                     </div>
@@ -90,6 +90,8 @@ const Navbar = () => {
                       <p className="text-yellow-200 text-sm">Join our Team</p>
                     </div>
                   </Link>
+                  
+                 
                 </div>
               </div>
             )}
@@ -107,7 +109,9 @@ const Navbar = () => {
             </button>
           </div>
           
-          <Link href="/" className="uppercase">WORK</Link>
+          <Link href="/contact-us" className="uppercase">WORK</Link>
+          
+          <Link href="/contact-us" className="uppercase">CONTACT</Link>
         </div>
         
         {/* Contact Button & Mobile Menu Toggle */}
@@ -135,7 +139,7 @@ const Navbar = () => {
             <div className="bg-[rgba(0,0,0,0.7)] rounded-lg max-w-md mx-auto backdrop-blur-sm p-4">
               <div className="flex flex-col space-y-4">
                 {serviceItems.map((item, index) => (
-                  <Link href={`/services/${item.title.toLowerCase().replace(/\s+/g, '-')}`} key={index} className="flex items-center space-x-4 hover:bg-black hover:bg-opacity-40 p-3 rounded-lg transition duration-300">
+                  <Link href="/contact-us" key={index} className="flex items-center space-x-4 hover:bg-black hover:bg-opacity-40 p-3 rounded-lg transition duration-300">
                     <div className="w-14 h-14 flex-shrink-0 bg-yellow-400 rounded-lg flex items-center justify-center">
                       {/* Placeholder for icon - you'll need to add actual icons */}
                       {index === 0 && (
@@ -157,6 +161,15 @@ const Navbar = () => {
                     </div>
                   </Link>
                 ))}
+                <Link href="/contact-us" className="flex items-center space-x-4 hover:bg-black hover:bg-opacity-40 p-3 rounded-lg transition duration-300">
+                  <div className="w-14 h-14 flex-shrink-0 bg-yellow-400 rounded-lg flex items-center justify-center">
+                    <span className="text-xl">📞</span>
+                  </div>
+                  <div>
+                    <h3 className="text-yellow-400 font-bold text-base">Need Help?</h3>
+                    <p className="text-yellow-200 text-sm">Contact our team</p>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
@@ -179,7 +192,7 @@ const Navbar = () => {
               </div>
               {activeDropdown === 'mobile-company' && (
                 <div className="mt-4 bg-[rgba(0,0,0,0.5)] rounded-lg p-4 backdrop-blur-sm">
-                  <Link href="/about" className="flex items-center space-x-3 mb-3 p-2 hover:bg-black hover:bg-opacity-40 rounded">
+                  <Link href="/contact-us" className="flex items-center space-x-3 mb-3 p-2 hover:bg-black hover:bg-opacity-40 rounded">
                     <div className="w-10 h-10 bg-yellow-400 rounded flex items-center justify-center flex-shrink-0">
                       <span className="text-lg">🏠</span>
                     </div>
@@ -189,13 +202,23 @@ const Navbar = () => {
                     </div>
                   </Link>
                   
-                  <Link href="/jobs" className="flex items-center space-x-3 mb-3 p-2 hover:bg-black hover:bg-opacity-40 rounded">
+                  <Link href="/contact-us" className="flex items-center space-x-3 mb-3 p-2 hover:bg-black hover:bg-opacity-40 rounded">
                     <div className="w-10 h-10 bg-yellow-400 rounded flex items-center justify-center flex-shrink-0">
                       <span className="text-lg">👥</span>
                     </div>
                     <div>
                       <h3 className="text-yellow-400 font-bold text-sm">Our Jobs</h3>
                       <p className="text-yellow-200 text-xs">Join our Team</p>
+                    </div>
+                  </Link>
+                  
+                  <Link href="/contact-us" className="flex items-center space-x-3 mb-3 p-2 hover:bg-black hover:bg-opacity-40 rounded">
+                    <div className="w-10 h-10 bg-yellow-400 rounded flex items-center justify-center flex-shrink-0">
+                      <span className="text-lg">📞</span>
+                    </div>
+                    <div>
+                      <h3 className="text-yellow-400 font-bold text-sm">Contact Us</h3>
+                      <p className="text-yellow-200 text-xs">Get in Touch</p>
                     </div>
                   </Link>
                 </div>
@@ -215,7 +238,7 @@ const Navbar = () => {
               {activeDropdown === 'mobile-services' && (
                 <div className="mt-4 bg-[rgba(0,0,0,0.5)] rounded-lg p-4 backdrop-blur-sm">
                   {serviceItems.map((item, index) => (
-                    <Link href={`/services/${item.title.toLowerCase().replace(/\s+/g, '-')}`} key={index} className="flex items-center space-x-3 mb-3 p-2 hover:bg-black hover:bg-opacity-40 rounded">
+                    <Link href="/contact-us" key={index} className="flex items-center space-x-3 mb-3 p-2 hover:bg-black hover:bg-opacity-40 rounded">
                       <div className="w-10 h-10 bg-yellow-400 rounded flex items-center justify-center flex-shrink-0">
                         {/* Placeholder icons */}
                         <span className="text-lg">{index === 0 ? '💎' : index === 1 ? '📱' : index === 2 ? '🎬' : '🎥'}</span>
@@ -226,13 +249,23 @@ const Navbar = () => {
                       </div>
                     </Link>
                   ))}
+                  <Link href="/contact-us" className="flex items-center space-x-3 mb-3 p-2 hover:bg-black hover:bg-opacity-40 rounded">
+                    <div className="w-10 h-10 bg-yellow-400 rounded flex items-center justify-center flex-shrink-0">
+                      <span className="text-lg">📞</span>
+                    </div>
+                    <div>
+                      <h3 className="text-yellow-400 font-bold text-sm">Need Help?</h3>
+                      <p className="text-yellow-200 text-xs">Contact our team</p>
+                    </div>
+                  </Link>
                 </div>
               )}
             </div>
             
             <div className="py-4 border-b border-yellow-200">
-              <Link href="/" className="font-bold text-gray-800">WORK</Link>
+              <Link href="/contact-us" className="font-bold text-gray-800">WORK</Link>
             </div>
+            
           </div>
         </div>
       )}

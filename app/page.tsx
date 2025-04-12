@@ -6,6 +6,7 @@ import { WobbleCardDemo } from "@/components/services";
 import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";
 import ContactSection from "@/components/contact-home";
+import Link from "next/link";
 
 export default function AboutUsSection() {
   // Client-side rendering for images to avoid hydration errors
@@ -71,9 +72,11 @@ export default function AboutUsSection() {
                 </p>
               </div>
               <div className="pt-2 md:pt-4 flex justify-center md:justify-start">
-                <Button className="bg-gray-800 hover:bg-gray-700 text-amber-400 hover:text-amber-300 font-medium px-6 py-2">
-                  KNOW MORE
-                </Button>
+                <Link href="/contact-us">
+                  <Button className="bg-gray-800 hover:bg-gray-700 text-amber-400 hover:text-amber-300 font-medium px-6 py-2">
+                    KNOW MORE
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

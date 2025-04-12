@@ -131,12 +131,15 @@ const Hero = () => {
       
       {/* Main Content with Logo instead of Text */}
       <div className="z-10 flex flex-col items-center mt-8 sm:mt-0">
-        {/* Using regular img tag for more direct control of size */}
+        {/* Fixed Image component with required width and height */}
         <div className={`${logoLoaded ? 'logo-animate' : 'opacity-0'}`} style={{width: "100%", maxWidth: "450px"}}>
           <Image 
             src="/bull-logo.png" 
             alt="Bison Buzz Logo"
+            width={450}
+            height={300}
             style={{width: "100%", height: "auto"}}
+            priority
           />
         </div>
         <p className='text-xl sm:text-xl md:text-2xl font-bold montserrat-new z-10 text-center px-4'>

@@ -76,7 +76,7 @@ export function WobbleCardDemo() {
         <WobbleCard containerClassName="col-span-1 lg:col-span-2 bg-emerald-800 min-h-[300px]">
           <div className="max-w-xs px-6">
             <h2 className="max-w-sm md:max-w-lg text-left text-balance text-2xl font-bold md:text-xl lg:text-3xl md:font-semibold tracking-[-0.015em] text-white">
-              100% Youtube Managment
+              100% Youtube management
             </h2>
             <p className="mt-4 max-w-[26rem] text-left text-base/6 text-neutral-200">
               We&rsquo;ll cover it according to your needs or manage it all, from

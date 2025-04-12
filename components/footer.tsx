@@ -40,10 +40,10 @@ export default function Footer() {
         <div>
           <h3 className="text-yellow-400 font-bold text-lg mb-3">Services</h3>
           <ul className="space-y-2 text-sm">
-            <li>Influencer Marketing</li>
+            <li>Celebrity Giveaway Sponsorships</li>
             <li>Social Media Management</li>
-            <li>Digital Advertisement</li>
-            <li>Video Production</li>
+            <li>Professional Dubbing</li>
+            <li>100% Youtube management</li>
           </ul>
         </div>
 
@@ -84,7 +84,7 @@ export default function Footer() {
             <Twitter className="w-5 h-5" />
           </Link>
           <Link
-            href="/"
+            href="https://www.instagram.com/bisonbuzz?igsh=emZiY212ZWIwY2hi"
             aria-label="Instagram"
             className="bg-gray-800 p-2 rounded-full hover:bg-yellow-300 hover:text-gray-900 transition-all"
           >

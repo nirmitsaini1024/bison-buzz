@@ -19,10 +19,10 @@ export default function AboutUsSection() {
     <div className="relative">
       {/* Navbar is positioned absolutely to overlay the hero */}
       <Navbar />
-      
+
       {/* Hero starts from the top of the page */}
       <Hero />
-      
+
       <div className="relative w-full py-8 md:py-24 overflow-hidden bg-white">
         {/* Background SVG pattern - only render on client side */}
         {isMounted && (
@@ -64,12 +64,10 @@ export default function AboutUsSection() {
               </h2>
               <div className="text-gray-700 text-base md:text-lg space-y-2 text-center md:text-left">
                 <p>
-                  Monk-E is a 360° creative digital media organisation that
-                  unifies Talent Management, Video Production, Social Media
-                  Management and Influencer Marketing under one roof.
-                  Conceptualised by Viraj Sheth and Ranveer Allahbadia, we are
-                  an ensemble set of young creators who specialise in all things
-                  digital.
+                  We don&apos;t chase trends we create them. At BisonBuzz, we build
+                  brands that roar louder, grow faster, and dominate feeds. No
+                  fluff. Just smart strategy, killer content, and results that
+                  speak for themselves. Big moves only. Let&apos;s get loud.
                 </p>
               </div>
               <div className="pt-2 md:pt-4 flex justify-center md:justify-start">
@@ -81,7 +79,7 @@ export default function AboutUsSection() {
           </div>
         </div>
       </div>
-      
+
       <div className="p-4">
         <WobbleCardDemo />
       </div>

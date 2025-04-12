@@ -15,7 +15,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className='relative min-h-screen w-full flex flex-col justify-center items-center bg-[#ffd823] text-[#333333] gap-3 overflow-hidden pt-16'>
+    <div className='relative min-h-screen w-full flex flex-col justify-center items-center bg-[#EBC054] text-[#333333] gap-3 overflow-hidden pt-16'>
       {/* Social Media Icons with custom animations */}
       <style jsx global>{`
         @keyframes floatHorizontal1 {

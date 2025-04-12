@@ -60,7 +60,7 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center space-x-8">
           <div className="relative group">
             <button 
-              className="font-bold uppercase flex items-center"
+              className="uppercase flex items-center"
               onClick={() => toggleDropdown('company')}
             >
               COMPANY
@@ -97,7 +97,7 @@ const Navbar = () => {
           
           <div className="relative group">
             <button 
-              className="font-bold uppercase flex items-center"
+              className="uppercase flex items-center"
               onClick={() => toggleDropdown('services')}
             >
               SERVICES
@@ -107,7 +107,7 @@ const Navbar = () => {
             </button>
           </div>
           
-          <Link href="/work" className="font-bold uppercase">WORK</Link>
+          <Link href="/work" className="uppercase">WORK</Link>
         </div>
         
         {/* Contact Button & Mobile Menu Toggle */}

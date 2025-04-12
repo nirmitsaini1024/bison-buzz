@@ -1,7 +1,7 @@
 /** @format */
 "use client";
 
-import React, { useLayoutEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
 // Type definitions
